@@ -1,6 +1,9 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 class DiceRoller extends StatefulWidget {
+
+  const DiceRoller({super.key});
 
   @override
   // returns out the contents of the current Widget
@@ -10,6 +13,22 @@ class DiceRoller extends StatefulWidget {
 }
 
 class _DiceRollerState extends State<DiceRoller> {
+
+  // initialize the starting dice pips
+  var activeDiceImage = 'assets/images/dice-2.png';
+
+  void rollDice() {
+
+    // generate a random number for the dice
+    // the minimum being 1 and the max being 6
+    var diceNumber = Random().nextInt(6) + 1;
+
+    // reinitialize the current dice pips
+    setState(() {
+      activeDiceImage = 'assets/images/dice-$diceNumber.png';
+    });
+
+  }
 
   @override
   Widget build(context) {
@@ -23,7 +42,7 @@ class _DiceRollerState extends State<DiceRoller> {
 
             // loads the given image in the string and sets the size
             Image.asset(
-              'assets/images/dice-1.png',
+              activeDiceImage,
               width: 69.0,
             ),
 
@@ -52,7 +71,7 @@ class _DiceRollerState extends State<DiceRoller> {
               )
 
           ],
-        ) 
+    ); 
   }
 
 }

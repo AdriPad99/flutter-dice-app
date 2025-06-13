@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:dice_app/dice_roller.dart';
 
 class GradientContainer extends StatelessWidget {
 
@@ -20,10 +21,6 @@ class GradientContainer extends StatelessWidget {
     }
   );
 
-  void rollDice() {
-
-  }
-
   @override
   Widget build(context) {
     return Container(
@@ -41,7 +38,7 @@ class GradientContainer extends StatelessWidget {
       // Centers the child text
       child: Center(
         // Controls the current text on screen
-        child: 
+        child: DiceRoller(),
       ),
     );
   }
